@@ -37,5 +37,9 @@ router.post('/', (req, res) => {
     })
 })
 
+router.get('/today', (req, res) => {
+
+})
+
 
 module.exports = router
