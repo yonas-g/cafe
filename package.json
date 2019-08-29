@@ -14,8 +14,7 @@
     "mongoose": "^5.6.11"
   },
   "engines": {
-    "node": "10.x",
-    "yarn": "1.x"
+    "node": "10.x"
   },
   "devDependencies": {
     "morgan": "^1.9.1"
