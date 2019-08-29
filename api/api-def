@@ -1,0 +1,21 @@
+
+POST /orders
+GET /orders
+
+-----------------------
+Schema
+
+*Order
+-[
+    orders: [{
+        tea: 2,
+        coffee: 1
+    }],
+    from: '',
+    time: Date
+]
+
+*available
+[
+    name
+]
