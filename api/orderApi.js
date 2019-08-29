@@ -34,7 +34,7 @@ router.post('/', (req, res) => {
         err ?
             res.status(500).json({
                 ok: false,
-                error: 'Server is down'
+                error: err
             }) :
             res.status(200).json({
                 ok: true,
