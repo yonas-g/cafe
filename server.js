@@ -23,6 +23,13 @@ mongoose.connect(url, { useNewUrlParser: true }, err => {
 /** PATH */
 app.use('/api/orders', orderApi)
 
+app.get('/', (req, res) => {
+    res.json({
+        ok: true,
+        message: 'Welcome'
+    })
+})
+
 app.listen(PORT, () => {
     console.log(`Server started. PORT: ${PORT}`);
 })
