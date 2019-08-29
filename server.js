@@ -14,8 +14,9 @@ app.use(logger('dev'))
 
 /** Mongoose */
 let url = uri + database
+let test_url = process.env.URI_TEST + '/test'
 
-mongoose.connect(process.env.URI_TEST + '/test', { useNewUrlParser: true }, err => {
+mongoose.connect(url, { useNewUrlParser: true }, err => {
     err ? console.log('Error Connecting to DB', err) : console.log('DB Connected');
 })
 
