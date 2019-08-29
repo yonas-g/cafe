@@ -6,8 +6,14 @@ const orderApi = require('./api/orderApi')
 
 /** Config */
 const PORT = process.env.PORT || 5000
+const env = 'development' || process.env.NODE_ENV
 const uri = process.env.URI
 const database = process.env.DATABASE_NAME
+
+if (env == 'development') {
+    let logger = require('morgan')
+    app.user(logger('dev'))
+}
 
 /** Mongoose */
 let url = uri + database
