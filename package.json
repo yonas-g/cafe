@@ -5,7 +5,8 @@
   "license": "MIT",
   "scripts": {
     "start": "node server",
-    "devstart": "nodemon server"
+    "dev": "nodemon server",
+    "development": "DEBUG=hellocashcafe:* & npm start"
   },
   "dependencies": {
     "dotenv": "^8.1.0",
