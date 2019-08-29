@@ -13,8 +13,34 @@ let testOrder = new Order({
     ]
 })
 
-testOrder.save().then(doc => {
-    console.log(doc)
-}).catch(err => {
-    console.log(err)
+// testOrder.save().then(doc => {
+//     console.log(doc)
+// }).catch(err => {
+//     console.log(err)
+// })
+
+testOrder.save((err, order) => {
+    err ? console.log(err) : console.log(order);
 })
+
+// let newOrder = new Order({
+    //     from: 'Yonas',
+    //     orders: [
+    //         {
+    //             name: new Available({
+    //                 name: 'Coffee'
+    //             }),
+    //             amount: 4
+    //         },
+    //         {
+    //             name: new Available({
+    //                 name: 'Tea'
+    //             }),
+    //             amount: 2
+    //         }
+    //     ]
+    // })
+
+    // newOrder.save((err, order) => {
+    //     err ? console.log(err) : console.log(order);
+    // })

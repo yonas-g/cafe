@@ -20,7 +20,7 @@ mongoose.connect(process.env.URI_TEST + '/test', { useNewUrlParser: true }, err 
 })
 
 /** PATH */
-app.use('/order', orderApi)
+app.use('/api/orders', orderApi)
 
 app.listen(PORT, () => {
     console.log(`Server started. PORT: ${PORT}`);
