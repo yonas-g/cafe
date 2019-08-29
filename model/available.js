@@ -4,7 +4,7 @@ const AvailableSchema = new mongoose.Schema({
     name: String
 })
 
-const Available = mongoose.model('Available', AvailableSchema)
+const Available = mongoose.model('available_items', AvailableSchema)
 
 module.exports = {
     Available,
