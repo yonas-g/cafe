@@ -12,6 +12,9 @@ const database = process.env.DATABASE_NAME
 
 if (env == 'development') {
     let logger = require('morgan')
+    uri = process.env.URI_TEST
+    database = DATABASE_NAME_TEST
+
     app.user(logger('dev'))
 }
 

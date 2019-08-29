@@ -1,4 +1,5 @@
 const router = require('express').Router()
+const moment = require('moment')
 
 const Order = require('../model/order').Order
 const Available = require('../model/available').Available
@@ -27,18 +28,31 @@ router.post('/', (req, res) => {
     })
 
     order.save((err, order) => {
-        err ? res.json({
-            ok: false,
-            error: err
-        }).status(500) : res.json({
-            ok: true,
-            order: order
-        }).status(200)
+        err ?
+            res.status(500).json({
+                ok: false,
+                error: err
+            }) :
+            res.status(200).json({
+                ok: true,
+                order: order
+            })
     })
 })
 
 router.get('/today', (req, res) => {
-
+    Order.find({ time: Date.now() }, (err, orders) => {
+        err ?
+            res.status(500).json({
+                ok: false,
+                error: err
+            }) :
+            res.status(200).json({
+                ok: true,
+                message: 'TODAY_ORDERS',
+                orders: orders
+            })
+    })
 })
 
 
