@@ -1,4 +1,5 @@
 require('dotenv').config()
+const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
 const app = require('express')()
 
@@ -10,12 +11,13 @@ const env = process.env.NODE_ENV
 let uri = process.env.URI
 let database = process.env.DATABASE_NAME
 
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
+
 if (env == 'development') {
     let logger = require('morgan')
     uri = process.env.URI_TEST
     database = process.env.DATABASE_NAME_TEST
-
-    console.log(uri + database);
 
     app.use(logger('dev'))
 }

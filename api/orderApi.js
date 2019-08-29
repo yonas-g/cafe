@@ -13,6 +13,9 @@ router.get('/', (req, res) => {
 
 router.post('/', (req, res) => {
 
+    // console.log(req.body);
+    // res.json(req.body)
+
     let { from, orders } = req.body
 
     let order = new Order({
