@@ -30,7 +30,7 @@ mongoose.connect(url, { useNewUrlParser: true }, err => {
     err ? console.log('Error Connecting to DB', err) : console.log('DB Connected');
 })
 
-/** PATH */
+/** API PATH */
 app.use('/api/orders', orderApi)
 app.use('/api/available', availableApi)
 
@@ -44,4 +44,3 @@ app.get('/', (req, res) => {
 app.listen(PORT, () => {
     console.log(`Server started. PORT: ${PORT}`);
 })
-
