@@ -4,6 +4,7 @@ const mongoose = require('mongoose')
 const app = require('express')()
 
 const orderApi = require('./api/orderApi')
+const availableApi = require('./api/availableApi')
 
 /** Config */
 const PORT = process.env.PORT || 5000
@@ -31,6 +32,7 @@ mongoose.connect(url, { useNewUrlParser: true }, err => {
 
 /** PATH */
 app.use('/api/orders', orderApi)
+app.use('/api/available', availableApi)
 
 app.get('/', (req, res) => {
     res.json({

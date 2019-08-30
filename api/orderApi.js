@@ -5,16 +5,26 @@ const Order = require('../model/order').Order
 const Available = require('../model/available').Available
 
 router.get('/', (req, res) => {
-    res.json({
-        ok: true,
-        message: 'AVAILABLE_ORDERS'
+    Order.find({}, (err, orders) => {
+        err ?
+            res
+                .status(500)
+                .json({
+                    ok: false,
+                    message: 'DATABASE FETCH ERROR',
+                    error: err
+                }) :
+            res
+                .status(200)
+                .json({
+                    ok: true,
+                    message: 'AVAILABLE_ORDERS',
+                    data: orders
+                })
     })
 })
 
 router.post('/', (req, res) => {
-
-    // console.log(req.body);
-    // res.json(req.body)
 
     let { from, orders } = req.body
 
@@ -43,7 +53,7 @@ router.post('/', (req, res) => {
     })
 })
 
-router.get('/today', (req, res) => {
+router.get('/now', (req, res) => {
     Order.find({ time: Date.now() }, (err, orders) => {
         err ?
             res.status(500).json({
