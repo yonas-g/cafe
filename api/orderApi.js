@@ -56,7 +56,7 @@ router.post('/', (req, res) => {
 router.get('/now', (req, res) => {
     let orderStartTime = moment(Date.now()).subtract('30', 'minute');
 
-    Order.find({ time: { $gt: orderStartTime } }, (err, orders) => {
+    Order.find({ time: { $gte: orderStartTime } }, (err, orders) => {
         err ?
             res.status(500).json({
                 ok: false,
