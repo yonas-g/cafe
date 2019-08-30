@@ -68,5 +68,4 @@ router.get('/now', (req, res) => {
     })
 })
 
-
 module.exports = router
