@@ -28,8 +28,8 @@ router.post('/', (req, res) => {
 
     let { from, orders } = req.body
 
-    let order = new Order({
-        from: from,
+    Order.create({
+        from,
         orders: orders.map(order => {
             return {
                 name: new Available({
@@ -38,9 +38,7 @@ router.post('/', (req, res) => {
                 amount: order.amount
             }
         })
-    })
-
-    order.save((err, order) => {
+    }, (err, order) => {
         err ?
             res.status(500).json({
                 ok: false,
