@@ -68,4 +68,42 @@ router.get('/now', (req, res) => {
     })
 })
 
+router.get('/date', (req, res) => {
+    let date = req.body.date
+
+    let startDate = moment(date).utcOffset(0)
+    startDate.set({
+        hour: 0,
+        minute: 0,
+        second: 0,
+        millisecond: 0
+    }).toISOString()
+
+    let endDate = moment(date).utcOffset(0)
+    endDate.set({
+        hour: 23,
+        minute: 59,
+        second: 59,
+        millisecond: 999
+    }).toISOString()
+
+    Order.find({
+        time: {
+            $lte: endDate,
+            $gte: startDate
+        }
+    }, (err, orders) => {
+        err ?
+            res.status(500).json({
+                ok: false,
+                error: err
+            }) :
+            res.status(200).json({
+                ok: true,
+                message: 'ORDERS_AT_DATE',
+                orders: orders
+            })
+    })
+})
+
 module.exports = router
