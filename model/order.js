@@ -15,6 +15,10 @@ const OrderSchema = new mongoose.Schema({
             amount: {
                 type: Number,
                 default: 0
+            },
+            delivered: {
+                type: Boolean,
+                default: false
             }
         }
     ],
