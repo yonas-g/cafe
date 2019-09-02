@@ -9,7 +9,6 @@ const OrderSchema = new mongoose.Schema({
     orders: [
         {
             name: {
-                type: AvailableSchema,
                 required: true
             },
             amount: {
